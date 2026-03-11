@@ -1,0 +1,19 @@
+log_dir: ./logs
+scan_interval: 3s
+timezone: Asia/Ho_Chi_Minh
+
+api:
+  port: 8080
+
+discord:
+  webhook_url: "https://discord.com/api/webhooks/1424831201201492151/dEUMVOVXd3QfEFaKGmAZFsVm2J9AqWF3v2b0LHaTJLli3RltBoUgdFH8q7N5-AWmB7NX"
+  keywords: []
+  user_events:
+    enabled: true
+    log_type: user
+    join_regex: '(?i)^\d+\s+"([^"]+)"\s+fully connected\b'
+    leave_regex: '(?i)^\d+\s+"([^"]+)"\s+disconnected player\b'
+    die_regex: '(?i)^user\s+([A-Za-z0-9_\- ]+)\s+died\b'
+    join_color: "#22c55e"
+    leave_color: "#ef4444"
+    die_color: "#f59e0b"

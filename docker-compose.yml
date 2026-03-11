@@ -1,0 +1,20 @@
+services:
+  log-crawler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: log-crawler
+    ports:
+      - "8080:8080"
+    volumes:
+      - ${HOST_LOG_DIR:-./logs}:/logs
+      - ./config.yaml.example:/app/config.yaml:ro
+    environment:
+      - CONFIG_PATH=/app/config.yaml
+      - LOG_DIR=/logs
+      - API_PORT=8080
+      - SCAN_INTERVAL=3s
+      - TIMEZONE=Asia/Ho_Chi_Minh
+      - DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/1424831201201492151/dEUMVOVXd3QfEFaKGmAZFsVm2J9AqWF3v2b0LHaTJLli3RltBoUgdFH8q7N5-AWmB7NX
+      # - DISCORD_KEYWORDS=${DISCORD_KEYWORDS:-error,failed}
+    restart: unless-stopped

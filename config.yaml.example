@@ -1,0 +1,21 @@
+log_dir: /logs
+scan_interval: 3s
+timezone: Asia/Ho_Chi_Minh
+
+api:
+  port: 8080
+
+discord:
+  webhook_url: ""
+  keywords:
+    - error
+    - failed
+  user_events:
+    enabled: true
+    log_type: user
+    join_regex: '(?i)^\d+\s+"([^"]+)"\s+fully connected\b'
+    leave_regex: '(?i)^\d+\s+"([^"]+)"\s+disconnected player\b'
+    die_regex: '(?i)^user\s+([A-Za-z0-9_\- ]+)\s+died\b'
+    join_color: "#22c55e"
+    leave_color: "#ef4444"
+    die_color: "#f59e0b"
